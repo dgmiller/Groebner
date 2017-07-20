@@ -1,7 +1,6 @@
 *.pyc
 *.swp
 *.py~ 
-*.ipynb
 pytest/htmlcov
 pytest/.cache
 .cache/

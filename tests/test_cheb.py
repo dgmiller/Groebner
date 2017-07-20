@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.polynomial.chebyshev import Chebyshev, chebgrid2d
 from groebner.multi_cheb import MultiCheb
 import pytest
 import pdb
@@ -6,6 +7,20 @@ import random
 
 def test_add():
     """Test Multivariate Chebyshev polynomial addition."""
+    # test one-dimensional addition against numpy's chebyshev implementation
+    p_coeff = [.5, .7, 16, 4, 2]
+    q_coeff = [.6, .5, 19, 0, 1]
+    p = Chebyshev(p_coeff)
+    q = Chebyshev(q_coeff)
+    p_ = MultiCheb(p_coeff)
+    q_ = MultiCheb(q_coeff)
+    assert np.allclose((p_+q_).coeff, (p+q).coef)
+
+    # test two-dimensional addition against numpy's chebyshev implementation
+    p_coeff = [.5, .4, .8, .2, .3]
+    q_coeff = [.2, .0, .1, .6, .9]
+
+
     t = np.arange(27).reshape((3,3,3))
     poly1 = MultiCheb(t)
     poly2 = MultiCheb(np.ones((3,3,3)))

@@ -2,6 +2,10 @@
 
 **Organization of this Repository**
 
+Each axis of the tensor of coefficients of a multivariate polynomial are ordered from smallest degree to largest degree. For example, the polynomial $x^2y^2 + 2x^2y + 3xy -5 = 0$ is represented by the matrix
+
+x^0, x^
+
 **Solving a System of Polynomial Equations**
 
 Groebner bases can be used to find solutions to a system of polynomial equations.
